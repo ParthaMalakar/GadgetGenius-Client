@@ -1,6 +1,10 @@
+import { useLoaderData } from 'react-router-dom';
 import banner from '../../../src/assets/banner.jpg';
+import Brand from './Brand';
 
 const Home = () => {
+    const brands = useLoaderData();
+    
     return (
         <div>
             <div className="hero max-w-full mx-auto" style={{
@@ -31,6 +35,14 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <h3 className='text-center text-3xl mt-10 font-bold'>Brands Details</h3>
+            <div className='grid md:grid-cols-3'>
+            {
+                brands.map(brand => <Brand
+                 key={brand._id} brand={brand}></Brand>)
+            }
+            </div>
+            
         </div>
     );
 };

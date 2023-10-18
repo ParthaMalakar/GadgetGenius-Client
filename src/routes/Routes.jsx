@@ -14,6 +14,7 @@ import Home from "../pages/Home/Home";
         {
           path: "/",
           element:<Home></Home> ,
+          loader:()=> fetch('http://localhost:5000/brands')
         },
       ],
     },

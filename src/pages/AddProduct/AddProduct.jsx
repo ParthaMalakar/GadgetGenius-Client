@@ -1,11 +1,23 @@
 
 const AddProduct = () => {
-    
+    const handleProduct = event => {
+        event.preventDefault();
+        const form = event.target;
+        const image = form.Image.value;
+        const name = form.Name.value;
+        const brandName = form.BrandName.value;
+        const type = form.Type.value;
+        const price = form.Price.value;
+        const shortDescription = form.ShortDescription.value;
+        const rating = form.Rating.value;
+const newProduct ={image,name,brandName,type,price,shortDescription,rating}
+console.log(newProduct)
+    }
     return (
         <div>
             <div className="bg-[#E76F511A]">
                 <h2 className="text-3xl my-7 pt-5 text-center font-bold">Please Give all information</h2>
-                <form  className=" md:w-3/4 lg:w-1/2 mx-auto">
+                <form onSubmit={handleProduct} className=" md:w-3/4 lg:w-1/2 mx-auto">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text font-semibold">Image</span>
@@ -28,27 +40,27 @@ const AddProduct = () => {
                         <label className="label">
                             <span className="label-text font-semibold">Type </span>
                         </label>
-                        <input type="email" required name="Type" placeholder="Type" className="input input-bordered" />
+                        <input type="text" required name="Type" placeholder="Type" className="input input-bordered" />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text font-semibold">Price</span>
                         </label>
-                        <input type="password" required name="Price" placeholder="Price" className="input input-bordered" />
+                        <input type="text" required name="Price" placeholder="Price" className="input input-bordered" />
 
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text font-semibold">Short description</span>
                         </label>
-                        <input type="password" required name="ShortDescription" placeholder="Short description" className="input input-bordered" />
+                        <input type="text" required name="ShortDescription" placeholder="Short description" className="input input-bordered" />
 
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text font-semibold">Rating</span>
                         </label>
-                        <input type="password" required name="Rating" placeholder="Rating" className="input input-bordered" />
+                        <input type="text" required name="Rating" placeholder="Rating" className="input input-bordered" />
 
                     </div>
                     <div className="form-control mt-6 mb-9">

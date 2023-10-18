@@ -2,7 +2,7 @@
 const Home = () => {
     return (
         <div>
-            <h4>Home</h4>
+            <h4 className="text-5xl">Home</h4>
         </div>
     );
 };

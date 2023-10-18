@@ -27,7 +27,7 @@ return (
                     </ul>
                 </div>
                 <div className="flex justify-center items-center">
-                <img className="h-[30px] w-[80px] ml-28 md:ml-0 " src={logo} alt="" />
+                <img className="h-[30px] w-[80px] ml-20 md:ml-0 " src={logo} alt="" />
                 <a className="btn btn-ghost normal-case text-base md:text-3xl pl-4 navbar-start">GadgetGenius</a>
 
                 </div>

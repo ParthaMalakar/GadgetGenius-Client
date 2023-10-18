@@ -1,5 +1,6 @@
 import { useLoaderData } from 'react-router-dom';
 import banner from '../../../src/assets/banner.jpg';
+import discount from '../../../src/assets/discount.jpg';
 import Brand from './Brand';
 
 const Home = () => {
@@ -36,13 +37,28 @@ const Home = () => {
                 </div>
             </div>
             <h3 className='text-center text-3xl mt-10 font-bold'>Brands Details</h3>
-            <div className='grid md:grid-cols-3'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-5'>
             {
                 brands.map(brand => <Brand
                  key={brand._id} brand={brand}></Brand>)
             }
             </div>
-            
+            <div className="bg-[#F9F6] flex flex-col lg:flex-row lg:gap-20 ">
+            <div className="space-y-7 flex-1 pt-8 pl-10 ">
+                <h1>Sale Offer <span className='text-red-400 text-xl'>-20% </span>Off This Week</h1>
+              <h2 className="text-2xl lg:text-4xl font-bold">
+              Featured Product Apple Accessories 2023
+
+              </h2>
+              <p>
+              Starting at <span className='text-xl text-red-400'>$1209.00</span> 
+              </p>
+              <button className="btn bg-red-400 text-white">Shopping Now</button>
+            </div>
+            <div className="flex-1">
+              <img src={discount} className="md:w-full h-96" />
+            </div>
+          </div>
         </div>
     );
 };

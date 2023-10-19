@@ -16,6 +16,22 @@ const Login = () => {
         signInWithGoogle()
             .then(result => {
                 if(result.user){
+                    const mycart = [];
+const e = result.user.email
+                const userdata = { email:e, MyCart: mycart };
+                fetch('http://localhost:5000/user', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userdata)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if(data.insertedId){
+                            console.log('user added to the database')
+                        }
+                    })
                     Swal.fire(
                         'Login success!',
                         'You clicked the button!',
@@ -50,6 +66,21 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 console.log(result.user);
+                const mycart = [];
+                const userdata = { email, MyCart: mycart };
+                fetch('http://localhost:5000/user', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userdata)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if(data.insertedId){
+                            console.log('user added to the database')
+                        }
+                    })
                 Swal.fire(
                     'Login success!',
                     'You clicked the button!',

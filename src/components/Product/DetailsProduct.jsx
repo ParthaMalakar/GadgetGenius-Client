@@ -8,6 +8,7 @@ const DetailsProduct = () => {
     const { user } = useContext(AuthContext);
     const {_id,image,name,brandName,type,price,shortDescription,rating} = product;
     const{email}=user;
+    console.log(email)
     const[carts,setCarts]=useState([])
     useEffect(() => {
         fetch(`http://localhost:5000/user/${email}`)
@@ -18,13 +19,15 @@ const DetailsProduct = () => {
        
         console.log(carts)
         const cart =[...carts,_id]
+        
         const Puser = {
             email,
             "MyCart" : cart
 
         }
+        console.log(Puser)
         fetch('http://localhost:5000/user', {
-                    method: 'PUT',
+                    method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'
                     },

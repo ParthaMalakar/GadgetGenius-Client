@@ -52,7 +52,7 @@ import Mycart from "../pages/Mycart/Mycart";
           },
           {
             path: "/mycart",
-            element:<Mycart></Mycart>,
+            element:<PrivateRoute><Mycart></Mycart></PrivateRoute>,
             loader:()=> fetch('http://localhost:5000/products')
             
           },

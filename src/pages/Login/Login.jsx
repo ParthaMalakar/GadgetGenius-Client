@@ -47,6 +47,27 @@ const Login = () => {
         const email = form.get('email');
         const password = form.get('password');
         console.log(email, password);
+        signIn(email, password)
+            .then(result => {
+                console.log(result.user);
+                Swal.fire(
+                    'Login success!',
+                    'You clicked the button!',
+                    'success'
+                  )
+                // navigate after login
+                e.target.reset();
+                navigate(location?.state ? location.state : '/');
+
+            })
+            .catch(error => {
+                Swal.fire({
+                    title: `${error.message}`,
+                    text: 'Do you want to continue',
+                    icon: 'error',
+                    confirmButtonText: 'Cool'
+                  })
+            })
         
     }
     return (

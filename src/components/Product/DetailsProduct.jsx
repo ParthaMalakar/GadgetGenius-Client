@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
-const Product = ({product}) => {
-    const {_id,image,name,brandName,type,price,rating} = product;
+const DetailsProduct = () => {
+    const product = useLoaderData();
+    const {_id,image,name,brandName,type,price,shortDescription,rating} = product;
+
+
     return (
         <div>
-           <div className="card mx-auto  md:h-[600px]  bg-base-100 shadow-2xl">
+            <div className="card mx-auto   bg-base-100 shadow-2xl">
                 <figure className="px-10 pt-10">
                     <img src={image} alt="Shoes" className="rounded-xl h-80 w-96" />
                 </figure>
@@ -13,10 +16,10 @@ const Product = ({product}) => {
                     <p>Brand Name:{brandName}</p>
                     <p>Product Type:{type}</p>
                     <p>Price:{price}</p>
+                    <p className="w-80">Description: {shortDescription}</p>
                     <p>Rating:{rating}Out of 5</p>
                     <div className="card-actions ">
-                        <Link to={`/productDescription/${_id}`} className="btn btn-primary flex-grow">Deatils</Link>
-                        <button className="btn btn-primary flex-grow">Update</button>
+                        <button className="btn btn-primary flex-grow">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -24,4 +27,4 @@ const Product = ({product}) => {
     );
 };
 
-export default Product;
+export default DetailsProduct;

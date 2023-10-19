@@ -12,6 +12,7 @@ const AddProduct = () => {
         const shortDescription = form.ShortDescription.value;
         const rating = form.Rating.value;
 const newProduct ={image,name,brandName,type,price,shortDescription,rating}
+event.target.reset();
 console.log(newProduct)
 fetch('http://localhost:5000/addProduct', {
     method: 'POST',

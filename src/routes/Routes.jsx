@@ -26,6 +26,7 @@ import BrandDetails from "../pages/Home/BrandDetails";
           {
             path: "/brandDescription/:name",
             element:<BrandDetails></BrandDetails> ,
+            loader:()=> fetch('http://localhost:5000/products')
             
           },
       ],

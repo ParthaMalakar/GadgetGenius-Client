@@ -1,8 +1,14 @@
+import { useLoaderData, useParams } from "react-router-dom";
+import Product from "./Product";
+import NoProduct from "./NoProduct";
 
 const BrandDetails = () => {
+    const {name} = useParams();
+    const allProducts = useLoaderData();
+    const brandProducts = allProducts.filter(pro => pro.brandName == name);
     return (
         <div>
-             <div data-aos="zoom-in" className=" carousel w-full lg:h-[550px] bg-[#E76F511A]">
+             <div data-aos="zoom-in" className=" carousel w-full lg:h-[550px] mb-7 bg-[#E76F511A]">
         <div id="slide1" className="carousel-item relative w-full">
           <div className="flex flex-col lg:flex-row lg:gap-20 p-4 lg:p-24">
             <div className="space-y-7 flex-1">
@@ -66,6 +72,8 @@ const BrandDetails = () => {
         </div>
         
       </div>
+      {brandProducts >0 ? brandProducts.map(product => <Product key={product._id} product={product}></Product>)
+      :<NoProduct></NoProduct>}
         </div>
     );
 };

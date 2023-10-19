@@ -6,6 +6,7 @@ import {
 import Root from "../layout/Root";
 import Home from "../pages/Home/Home";
 import AddProduct from "../pages/AddProduct/AddProduct";
+import BrandDetails from "../pages/Home/BrandDetails";
   const router = createBrowserRouter([
     {
       path: "/",
@@ -20,6 +21,11 @@ import AddProduct from "../pages/AddProduct/AddProduct";
         {
             path: "/addProduct",
             element:<AddProduct></AddProduct> ,
+            
+          },
+          {
+            path: "/brandDescription/:name",
+            element:<BrandDetails></BrandDetails> ,
             
           },
       ],

@@ -72,7 +72,11 @@ const BrandDetails = () => {
         </div>
         
       </div>
-      {brandProducts >0 ? brandProducts.map(product => <Product key={product._id} product={product}></Product>)
+      
+      {brandProducts.length >0 ?<div className="grid grid-cols-2 gap-5">
+        { brandProducts.map(product => <Product key={product._id} product={product}></Product>)}
+        </div>
+
       :<NoProduct></NoProduct>}
         </div>
     );

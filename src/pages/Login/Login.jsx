@@ -1,11 +1,45 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { FcGoogle } from "react-icons/fc";
+import Swal from "sweetalert2";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/Authprovider";
 
 
 
 const Login = () => {
+    const { signInWithGoogle, signIn } = useContext(AuthContext);
+    const navigate = useNavigate();
 
+    console.log('location i n the login page', location)
+    const handleSignInWithGoogle = () => {
+        signInWithGoogle()
+            .then(result => {
+                if(result.user){
+                    Swal.fire(
+                        'Login success!',
+                        'You clicked the button!',
+                        'success'
+                      )
+                }
+               
+                
+                navigate(location?.state ? location.state : '/');
+
+            })
+            .catch(error => {
+                if(error){
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Do you want to continue',
+                        icon: 'error',
+                        confirmButtonText: 'Cool'
+                      })
+                }
+               
+            })
+
+    }
     const handleLogin = e => {
         e.preventDefault();
         console.log(e.currentTarget);
@@ -44,7 +78,7 @@ const Login = () => {
                 <hr className="text-black w-[300px] mx-auto border-t-3 border-orange-500"></hr>
                 <p className="text-center font-bold pb-3 ">Or</p>
                 <div className="justify-center items-center text-center pb-7 mb-9">
-                    <button  className=" text-black btn btn-secondary bg-[#FFF]"> <FcGoogle className="text-2xl"></FcGoogle> Continue with Google</button>
+                    <button onClick={handleSignInWithGoogle} className=" text-black btn btn-secondary bg-[#FFF]"> <FcGoogle className="text-2xl"></FcGoogle> Continue with Google</button>
 
                 </div>
             </div>

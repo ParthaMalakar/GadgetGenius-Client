@@ -16,7 +16,7 @@ const Product = ({product}) => {
                     <p>Rating:{rating}Out of 5</p>
                     <div className="card-actions ">
                         <Link to={`/productDescription/${_id}`} className="btn btn-primary flex-grow">Deatils</Link>
-                        <button className="btn btn-primary flex-grow">Update</button>
+                        <Link to={`/update/${_id}`}><button className="btn btn-primary flex-grow">Update</button></Link>
                     </div>
                 </div>
             </div>

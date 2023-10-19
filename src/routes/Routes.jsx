@@ -12,11 +12,13 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register"
 import PrivateRoute from "./Privateroute";
 import Mycart from "../pages/Mycart/Mycart";
+import UpdateProduct from "../pages/UpdateProduct/UpdateProduct";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Root />,
-    //   errorElement: <ErrorPage />,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
           path: "/",
@@ -54,6 +56,12 @@ import Mycart from "../pages/Mycart/Mycart";
             path: "/mycart",
             element:<PrivateRoute><Mycart></Mycart></PrivateRoute>,
             loader:()=> fetch('http://localhost:5000/products')
+            
+          },
+          {
+            path: "/update/:id",
+            element:<PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
+            loader:({ params })=> fetch(`http://localhost:5000/products/${params.id}`)
             
           },
       ],

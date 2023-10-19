@@ -19,16 +19,40 @@ const Authprovider = ({ children }) => {
     }
 
 
+    const signInWithGoogle = ()=>{
+        const provider = new GoogleAuthProvider();
+        return signInWithPopup(auth, provider);
+    }
+    const logOut = () => {
+        setLoading(true);
+        return signOut(auth);
+        
+    }
 
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, currentUser => {
+            setUser(currentUser);
+            setLoading(false);
+        });
+        return () => {
+            unSubscribe();
+        }
+    }, [])
+    
 
+  
 
     const authInfo = {
         user,
         loading,
         createUser,
         signIn,
-
+        signInWithGoogle,
+        logOut
     }
+
+
+   
 
     return (
         <div>

@@ -54,6 +54,22 @@ const Registration = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
+                const mycart = [];
+                const userdata = { email, MyCart: mycart };
+                fetch('http://localhost:5000/user', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userdata)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if(data.insertedId){
+                            console.log('user added to the database')
+                        }
+                    })
+
                 updateProfile(user, {
                     displayName: name , 
                     photoURL: photo , 

@@ -9,6 +9,7 @@ import AddProduct from "../pages/AddProduct/AddProduct";
 import BrandDetails from "../pages/Home/BrandDetails";
 import DetailsProduct from "../components/Product/DetailsProduct";
 import Login from "../pages/Login/Login";
+import Register from "../pages/Register/Register"
   const router = createBrowserRouter([
     {
       path: "/",
@@ -40,6 +41,11 @@ import Login from "../pages/Login/Login";
           {
             path: "/login",
             element:<Login></Login>,
+            
+          },
+          {
+            path: "/register",
+            element:<Register></Register>,
             
           },
       ],

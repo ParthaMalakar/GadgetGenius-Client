@@ -68,7 +68,7 @@ const Home = () => {
                     <div className="  hero min-h-screen ">
 
                         <div className="hero-content flex-col gap-7 lg:flex-row-reverse">
-                            <div className="text-center w-[650px] lg:text-left">
+                            <div className="text-center md:w-[650px] lg:text-left">
                                 <p className="py-6 text-5xl font-bold">Product Suggest that you not find in our website </p>
                                 <p>Discover our handpicked selection of the latest and greatest tech gadgets and electronics. From cutting-edge smartphones to innovative smart home devices, our expert recommendations will help you stay ahead of the tech curve and make informed choices. Whether you're a tech enthusiast or a casual consumer, find the perfect product for your needs here.</p>
                             </div>

@@ -11,7 +11,7 @@ const DetailsProduct = () => {
     console.log(email)
     const[carts,setCarts]=useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${email}`)
+        fetch(`https://brand-shop-server-fmbxdyyfd-parthamalakar.vercel.app/user/${email}`)
             .then(res => res.json())
             .then(data => setCarts(data.MyCart))
     }, [])
@@ -26,7 +26,7 @@ const DetailsProduct = () => {
 
         }
         console.log(Puser)
-        fetch('http://localhost:5000/user', {
+        fetch('https://brand-shop-server-fmbxdyyfd-parthamalakar.vercel.app/user', {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'

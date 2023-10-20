@@ -10,7 +10,7 @@ import { AuthContext } from "../../provider/Authprovider";
 const Login = () => {
     const { signInWithGoogle, signIn } = useContext(AuthContext);
     const navigate = useNavigate();
-
+    const location = useLocation();
     console.log('location i n the login page', location)
     const handleSignInWithGoogle = () => {
         signInWithGoogle()
@@ -19,7 +19,7 @@ const Login = () => {
                     const mycart = [];
 const e = result.user.email
                 const userdata = { email:e, MyCart: mycart };
-                fetch('http://localhost:5000/user', {
+                fetch('https://brand-shop-server-fmbxdyyfd-parthamalakar.vercel.app/user', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -68,7 +68,7 @@ const e = result.user.email
                 console.log(result.user);
                 const mycart = [];
                 const userdata = { email, MyCart: mycart };
-                fetch('http://localhost:5000/user', {
+                fetch('https://brand-shop-server-fmbxdyyfd-parthamalakar.vercel.app/user', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

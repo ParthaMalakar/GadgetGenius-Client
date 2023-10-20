@@ -17,7 +17,7 @@ const MycartDetails = ({pro}) => {
             if (result.isConfirmed) {
     
     
-                fetch(`http://localhost:5000/products/${_id}`, {
+                fetch(`https://brand-shop-server-fmbxdyyfd-parthamalakar.vercel.app/products/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

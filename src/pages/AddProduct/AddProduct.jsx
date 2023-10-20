@@ -14,7 +14,7 @@ const AddProduct = () => {
 const newProduct ={image,name,brandName,type,price,shortDescription,rating}
 event.target.reset();
 console.log(newProduct)
-fetch('http://localhost:5000/addProduct', {
+fetch('https://brand-shop-server-fmbxdyyfd-parthamalakar.vercel.app/addProduct', {
     method: 'POST',
     headers: {
         'content-type': 'application/json'

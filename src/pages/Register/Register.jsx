@@ -56,7 +56,7 @@ const Registration = () => {
                 const user = result.user;
                 const mycart = [];
                 const userdata = { email, MyCart: mycart };
-                fetch('http://localhost:5000/user', {
+                fetch('https://brand-shop-server-fmbxdyyfd-parthamalakar.vercel.app/user', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

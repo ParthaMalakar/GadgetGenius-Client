@@ -17,7 +17,7 @@ const UpdateProduct = () => {
         const price = form.Price.value;
         const rating = form.Rating.value;
 const newProduct ={image,name,brandName,type,price,rating}
-fetch(`http://localhost:5000/products/${_id}`, {
+fetch(`https://brand-shop-server-fmbxdyyfd-parthamalakar.vercel.app/products/${_id}`, {
     method: 'PUT',
     headers: {
         'content-type': 'application/json'

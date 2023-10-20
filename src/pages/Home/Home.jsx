@@ -2,12 +2,25 @@ import { useLoaderData } from 'react-router-dom';
 import banner from '../../../src/assets/banner.jpg';
 import discount from '../../../src/assets/discount.jpg';
 import Brand from './Brand';
+import { useState } from 'react';
 
 const Home = () => {
     const brands = useLoaderData();
-
+    const [isDarkMode, setDarkMode] = useState(false);
+    const toggleTheme = () => {
+        setDarkMode(!isDarkMode);
+      };
+      const themeClass = isDarkMode ? 'black' : 'white';
+   
     return (
-        <div>
+        <div className={`bg-${themeClass}`}>
+            <div className='text-right'>
+            <button onClick={toggleTheme} className={`px-4 py-1 bg-${themeClass}-bg text-${themeClass}-text border border-${themeClass}-border rounded-md ${isDarkMode ? 'text-white' : ''} `}>
+          Toggle Theme
+        </button>
+           
+            </div>
+            
             <div className="hero max-w-full mx-auto" style={{
 
                 background: 'rgba(255, 255, 255, 0.7)',
@@ -36,7 +49,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <h3 className='text-center text-3xl mt-10 font-bold'>Brands Details</h3>
+            <h3 className={`text-center text-3xl mt-10 font-bold ${isDarkMode ? 'text-white' : ''}`}>Brands Details</h3>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-5'>
                 {
                     brands.map(brand => <Brand
@@ -61,7 +74,7 @@ const Home = () => {
             </div>
             <div data-aos="fade-up"
                 data-aos-duration="3000" className='bg-[#009CDB26] mt-10'>
-                <h2 className=' text-center text-4xl pt-5 font-bold '>Give Us Product Suggestion</h2>
+                <h2 className= {`text-center text-4xl pt-5 font-bold ${isDarkMode ? 'text-white' : ''}`} >Give Us Product Suggestion</h2>
                 <div>
 
 
@@ -69,8 +82,8 @@ const Home = () => {
 
                         <div className="hero-content flex-col gap-7 lg:flex-row-reverse">
                             <div className="text-center md:w-[650px] lg:text-left">
-                                <p className="py-6 text-5xl font-bold">Product Suggest that you not find in our website </p>
-                                <p>Discover our handpicked selection of the latest and greatest tech gadgets and electronics. From cutting-edge smartphones to innovative smart home devices, our expert recommendations will help you stay ahead of the tech curve and make informed choices. Whether you're a tech enthusiast or a casual consumer, find the perfect product for your needs here.</p>
+                                <p className={`py-6 text-5xl ${isDarkMode ? 'text-white' : ''} font-bold`}>Product Suggest that you not find in our website </p>
+                                <p className={`${isDarkMode ? 'text-white' : ''}`}>Discover our handpicked selection of the latest and greatest tech gadgets and electronics. From cutting-edge smartphones to innovative smart home devices, our expert recommendations will help you stay ahead of the tech curve and make informed choices. Whether you're a tech enthusiast or a casual consumer, find the perfect product for your needs here.</p>
                             </div>
                             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                                 <form className="card-body">

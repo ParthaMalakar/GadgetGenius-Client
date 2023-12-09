@@ -1,3 +1,6 @@
+## Backend : https://github.com/ParthaMalakar/GadgetGenus-Server
+## Live Link : https://gadgetgenius.web.app/
+
 Public Accessible Home Page: The home page is accessible to all users without the need to log in. This provides a welcoming introduction to your platform and showcases its content.
 
 View Brand Advertisements: Users can see advertisements from various brands on the platform. These advertisements can be displayed prominently on the home page to grab the user's attention and promote the featured brands.
